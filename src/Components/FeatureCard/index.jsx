@@ -1,6 +1,7 @@
 import React from "react";
+import {PiCellSignalLowBold} from "react-icons/pi";
 import "./styles.css";
-import { UserProfile } from "../UserProfile";
+import { UserProfile } from "../UserProfileIcon";
 
 
 const FeatureCard = ({ ticket, userInfo }) => {
@@ -29,7 +30,7 @@ const FeatureCard = ({ ticket, userInfo }) => {
       {/* Section 3: Additional Options */}
       <div className="div-3">
         {/* More options or actions can be added here */}
-        <div>...</div>
+        <PiCellSignalLowBold/>
         <div className="frame-wrapper">
           <div className="div-4">
             {/* Icon or indicator can be added here */}
