@@ -9,12 +9,9 @@ import { useAppState } from "../../Components/StateContext";
 export const Board = () => {
   const [tickets, setTickets] = useState([]);
   const [userInfo, setUserInfo] = useState([]);
-  const [isDataLoaded, setIsDataLoaded] = useState(false);
   const { selectedOptions } = useAppState();
   const grouping = selectedOptions.grouping;
   const ordering = selectedOptions.ordering;
-
-  //sort by priority
 
   // fetching data from api
   useEffect(() => {
@@ -25,8 +22,6 @@ export const Board = () => {
         );
         setTickets(response.data.tickets);
         setUserInfo(response.data.users);
-        console.log(userInfo);
-        setIsDataLoaded(true);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -34,45 +29,46 @@ export const Board = () => {
     fetchData();
   }, []);
 
-// Sorting the tickets on the basis of desired ordering.
-function ticketsSorting(tickets) {
-  Object.keys(tickets).forEach(key => {
-    tickets[key] = tickets[key].sort((a, b) => {
-      if (ordering === 'priority') {
-        return b.priority - a.priority;
+  // Sorting the tickets on the basis of desired ordering.
+  const ticketsSorting = (tickets) => {
+    Object.keys(tickets).forEach((key) => {
+      tickets[key] = tickets[key].sort((a, b) => {
+        if (ordering === "priority") {
+          return b.priority - a.priority;
+        } else {
+          return a.title.localeCompare(b.title);
+        }
+      });
+    });
+  };
+
+  // Sorting the tickets on the basis of desired grouping.
+  const ticketsGrouping = () => {
+    let requiredTickets = {};
+    tickets.forEach((ticket) => {
+      if (grouping === "user") {
+        requiredTickets[ticket.userId] = requiredTickets[ticket.userId] || [];
+        requiredTickets[ticket.userId].push(ticket);
+      } else if (grouping === "priority") {
+        requiredTickets[ticket.priority] =
+          requiredTickets[ticket.priority] || [];
+        requiredTickets[ticket.priority].push(ticket);
       } else {
-        return a.title.localeCompare(b.title);
+        requiredTickets[ticket.status] = requiredTickets[ticket.status] || [];
+        requiredTickets[ticket.status].push(ticket);
       }
     });
-  });
-}
+    ticketsSorting(requiredTickets);
+    console.log(requiredTickets, "🥺😊 ");
+    return requiredTickets;
+  };
+  const data = ticketsGrouping();
 
-// Sorting the tickets on the basis of desired grouping.
-function ticketsGrouping(){
-  let requiredTickets = {};
-  tickets.forEach(ticket => {
-    if (grouping === 'user') {
-      requiredTickets[ticket.userId] = requiredTickets[ticket.userId] || [];
-      requiredTickets[ticket.userId].push(ticket);
-    } else if (grouping === 'priority') {
-      requiredTickets[ticket.priority] = requiredTickets[ticket.priority] || [];
-      requiredTickets[ticket.priority].push(ticket);
-    } else {
-      requiredTickets[ticket.status] = requiredTickets[ticket.status] || [];
-      requiredTickets[ticket.status].push(ticket);
-    }
-    
-  });
-  ticketsSorting(requiredTickets);
-  return requiredTickets;
-}
-setTickets(ticketsGrouping());
-console.log(tickets,'------1-1---1-----1----');
   return (
     <>
       <Dropdown />
       <GroupTickets
-        tickets={tickets}
+        tickets={data}
         groupingData={GroupingData}
         userInfo={userInfo}
         groupingLabel={grouping}
