@@ -14,15 +14,15 @@ import ToDo from "./StatusIcons/ToDo.svg";
 import InProgress from "./StatusIcons/InProgress.svg";
 
 export {
-    Avatar,
-    Urgent,
-    Low,
-    High,
-    Medium,
-    NoPriority,
-    Cancelled,
-    Backlog,
-    Done,
-    ToDo,
-    InProgress
-}
+  Avatar,
+  Urgent,
+  Low,
+  High,
+  Medium,
+  NoPriority,
+  Cancelled,
+  Backlog,
+  Done,
+  ToDo,
+  InProgress
+};

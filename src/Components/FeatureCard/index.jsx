@@ -1,16 +1,17 @@
 import React from "react";
 import {PiCellSignalLowBold} from "react-icons/pi";
 import "./styles.css";
-import { UserProfile } from "../UserProfileIcon";
+import { UserProfile } from "../UserProfile";
 
 
-const FeatureCard = ({ ticket, userInfo }) => {
+const FeatureCard = ({ ticket, userInfo, statusIcon, priorityIcon, userAvailability }) => {
+
   // Extract ticket properties from props
   const ticketId = ticket.id;
   const userId = ticket.userId;
   const title = ticket.title;
   const status = ticket.status;
-
+  
   return (
     <div className="frame">
       {/* Section 1: Ticket ID and User Information */}
@@ -18,7 +19,7 @@ const FeatureCard = ({ ticket, userInfo }) => {
         <div className="text-wrapper">{ticketId}</div>
         <div>
           {/* Render the UserProfile component with user information */}
-          <UserProfile userInfo={userInfo} userId={userId} />
+          <UserProfile userInfo={userInfo} userId={userId} userAvailability />
         </div>
       </div>
 

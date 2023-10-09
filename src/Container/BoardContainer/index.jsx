@@ -1,25 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { GroupTicketByUser } from "../GroupTicketByUser";
-import { GroupTicketByStatus } from "../GroupTicketByStatus";
-import { GroupTicketByPriority } from "../GroupTicketByPriority";
 
-// 4 - Urgent
-// 3 - High
-// 2 - Medium
-// 1 - Low
-// 0 - No priority
-const priorityLabels = [
-    {key:0, label:"No priority"},
-    {key:1, label:"Low"},
-    {key:2, label:"Medium"},
-    {key:3, label:"High"},
-    {key:4, label:"Urgent"}
-];
+import { GroupTickets } from "../GroupTickets";
+import { GroupingData } from "../../Components/GroupingData";
+
+import Dropdown from "../../Components/DropDown";
+import { useAppState } from "../../Components/StateContext";
 export const Board = () => {
   const [tickets, setTickets] = useState([]);
   const [userInfo, setUserInfo] = useState([]);
   const [isDataLoaded, setIsDataLoaded] = useState(false);
+  const { selectedOptions } = useAppState();
+  const grouping = selectedOptions.grouping;
+  const ordering = selectedOptions.ordering;
+
+  //sort by priority
+
   // fetching data from api
   useEffect(() => {
     const fetchData = async () => {
@@ -38,15 +34,49 @@ export const Board = () => {
     fetchData();
   }, []);
 
+// Sorting the tickets on the basis of desired ordering.
+function ticketsSorting(tickets) {
+  Object.keys(tickets).forEach(key => {
+    tickets[key] = tickets[key].sort((a, b) => {
+      if (ordering === 'priority') {
+        return b.priority - a.priority;
+      } else {
+        return a.title.localeCompare(b.title);
+      }
+    });
+  });
+}
+
+// Sorting the tickets on the basis of desired grouping.
+function ticketsGrouping(){
+  let requiredTickets = {};
+  tickets.forEach(ticket => {
+    if (grouping === 'user') {
+      requiredTickets[ticket.userId] = requiredTickets[ticket.userId] || [];
+      requiredTickets[ticket.userId].push(ticket);
+    } else if (grouping === 'priority') {
+      requiredTickets[ticket.priority] = requiredTickets[ticket.priority] || [];
+      requiredTickets[ticket.priority].push(ticket);
+    } else {
+      requiredTickets[ticket.status] = requiredTickets[ticket.status] || [];
+      requiredTickets[ticket.status].push(ticket);
+    }
+    
+  });
+  ticketsSorting(requiredTickets);
+  return requiredTickets;
+}
+setTickets(ticketsGrouping());
+console.log(tickets,'------1-1---1-----1----');
   return (
     <>
-      <GroupTicketByPriority
+      <Dropdown />
+      <GroupTickets
         tickets={tickets}
-        priorityLabels={priorityLabels}
+        groupingData={GroupingData}
         userInfo={userInfo}
+        groupingLabel={grouping}
       />
-      <GroupTicketByUser tickets={tickets} userInfo={userInfo} />
-      <GroupTicketByStatus tickets={tickets} userInfo={userInfo} />
     </>
   );
 };
