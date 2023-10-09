@@ -1,0 +1,34 @@
+.custom-label-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  width: 100%;
+}
+.custom-label-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.custom-label-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.columnDisplayText {
+  color: #000;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.columnDisplaySize {
+  color: #6e7279;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

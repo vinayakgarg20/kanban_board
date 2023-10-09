@@ -76,13 +76,19 @@ export const Board = () => {
   ticketInfo= ticketsGrouping();
   userInfo=userMap();
   return (
-    <>
+    <div>
+      
+      <div>
       <Dropdown />
+      </div>
+      <div>
       <GroupTickets
         tickets={ticketInfo}
         userInfo={userInfo}
         groupingLabel={grouping}
       />
-    </>
+      </div>
+      
+    </div>
   );
 };

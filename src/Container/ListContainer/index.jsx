@@ -1,23 +1,25 @@
 import React from "react";
+import "./styles.css";
 import FeatureCard from "../../Components/FeatureCard";
-import { GroupingData } from "../../Components/GroupingData";
+import { CustomLabel } from "../../Components/CustomLabel";
 const ListContainer = ({ title, tickets, userInfo, groupingLabel }) => {
-  const PriorityLabel = GroupingData.PriorityLabel;
-
   return (
-    <div>
-         {groupingLabel === "priority" &&  <h1>{PriorityLabel[Number(title)]}</h1> }
-         {groupingLabel === "status" &&  <h1>{title}</h1>}
-         {groupingLabel === "user" &&  <h1>{userInfo[title].name}</h1>}
-          {tickets.map((ticket) => (
-            <>
-              <FeatureCard
-                ticket={ticket}
-                userInfo={userInfo}
-                groupingLabel={groupingLabel}
-              />
-            </>
-          ))}
+    <div className="list-container">
+      <CustomLabel
+        val={title}
+        groupingLabel={groupingLabel}
+        userInfo={userInfo}
+        length={tickets.length}
+      />
+      {tickets.map((ticket) => (
+        <div className="card-list">
+          <FeatureCard
+            ticket={ticket}
+            userInfo={userInfo}
+            groupingLabel={groupingLabel}
+          />
+        </div>
+      ))}
     </div>
   );
 };

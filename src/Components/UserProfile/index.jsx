@@ -10,10 +10,10 @@ export const UserProfile = ({ userInfo, userId, userAvailability }) => {
   const imageUrl = `https://api.multiavatar.com/${userName}Bond.svg`;
   
   return (
-    <div className="user-profile-image">
-      <img className="profile" src={imageUrl} alt={`${userName}`} />
+    <div className="profileImageMain">
+      <img className="profileImage" src={imageUrl} alt={`${userName}`} />
       <div
-        className="available-dot"
+        className="dot"
         style={{ backgroundColor: `${color}` }}
       ></div>
     </div>

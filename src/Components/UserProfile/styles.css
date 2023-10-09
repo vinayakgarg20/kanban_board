@@ -1,24 +1,19 @@
 
-  .user-profile-image {
-    width: 15px;
-    height: 15px;
-    border-radius: 8px;
+  .profileImageMain {
+    border-radius: 100%;
     position: relative; 
   }
-  
-  .profile {
+  .profileImage {
     width: 20px;
     height: 20px;
     border-radius: 50%; 
   }
-  
-  .available-dot {
+  .dot {
     position: absolute; 
-    width: 7px; 
-    height: 7px;
-    border-radius: 50%; 
-    top: 12px;
-    border: 1px solid rgb(217, 214, 214);
-    left: 11px;
+    width: 6px; 
+    height: 6px;
+    border-radius: 100%; 
+    top: 14px;
+    left: 14px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
   }

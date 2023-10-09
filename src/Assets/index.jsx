@@ -1,4 +1,5 @@
-import Avatar from "./Avatar.png";
+import Plus from "./plus.svg";
+import ThreeDots from "./threeDots.svg";
 // Priority Icons
 import Urgent from "./PriorityIcons/Urgent.svg";
 import Low from "./PriorityIcons/Low.svg";
@@ -14,7 +15,8 @@ import ToDo from "./StatusIcons/ToDo.svg";
 import InProgress from "./StatusIcons/InProgress.svg";
 
 export {
-  Avatar,
+  Plus,
+  ThreeDots,
   Urgent,
   Low,
   High,
