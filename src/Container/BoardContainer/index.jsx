@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import { GroupTickets } from "../GroupTickets";
+import { GroupTickets } from "../../Components/GroupTickets";
 import { GroupingData } from "../../Components/GroupingData";
 
 import Dropdown from "../../Components/DropDown";
 import { useAppState } from "../../Components/StateContext";
 export const Board = () => {
   const [tickets, setTickets] = useState([]);
-  const [userInfo, setUserInfo] = useState([]);
+  const [users, setUsers] = useState([]);
   const { selectedOptions } = useAppState();
   const grouping = selectedOptions.grouping;
   const ordering = selectedOptions.ordering;
 
+  //create a object of users with userId as key value;
+  let userInfo={};
+  // grouping tickets according to different categories
+  let ticketInfo={};
   // fetching data from api
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +25,7 @@ export const Board = () => {
           "https://api.quicksell.co/v1/internal/frontend-assignment"
         );
         setTickets(response.data.tickets);
-        setUserInfo(response.data.users);
+        setUsers(response.data.users);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -62,14 +66,20 @@ export const Board = () => {
     console.log(requiredTickets, "🥺😊 ");
     return requiredTickets;
   };
-  const data = ticketsGrouping();
-
+  const userMap=()=>{
+    let userMapping={}
+    users.forEach(user=>{
+      userMapping[user.id]=user;
+    })
+    return userMapping;
+  }
+  ticketInfo= ticketsGrouping();
+  userInfo=userMap();
   return (
     <>
       <Dropdown />
       <GroupTickets
-        tickets={data}
-        groupingData={GroupingData}
+        tickets={ticketInfo}
         userInfo={userInfo}
         groupingLabel={grouping}
       />

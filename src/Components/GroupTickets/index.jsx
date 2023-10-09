@@ -1,8 +1,7 @@
-import ListContainer from "../ListContainer";
+import ListContainer from "../../Container/ListContainer";
 export const GroupTickets = ({
   tickets,
   userInfo,
-  groupingData,
   groupingLabel,
 }) => {
   return (
@@ -12,7 +11,6 @@ export const GroupTickets = ({
           title={ticketList}
           tickets={tickets[ticketList]}
           userInfo={userInfo}
-          groupingData={groupingData}
           groupingLabel={groupingLabel}
         />
       ))}

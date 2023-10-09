@@ -3,6 +3,7 @@ const AppStateContext = createContext();
 
 export const AppStateProvider = ({ children }) => {
   const initialState = {
+    
     grouping: "status",
     ordering: "priority"
   };

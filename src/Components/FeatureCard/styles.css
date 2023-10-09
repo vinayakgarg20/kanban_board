@@ -1,132 +1,97 @@
-.frame {
-    align-items: flex-start;
-    background-color: #ffffff;
-    border: 1px solid;
-    border-color: #ebecf0;
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 16px 20px;
-    position: relative;
-    width: 294px;
-  }
-  
-  .frame .div-2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex: 0 0 auto;
-    gap: 8px;
-    position: relative;
-  }
-  
-  .frame .text-wrapper {
-    color: #6e7276;
-    font-family: "Quicksand", Helvetica;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
-  
-  .frame .avatar-instance {
-    background-image: url(https://c.animaapp.com/dBGBLDeR/img/avatar@2x.png) !important;
-    display: flex !important;
-    height: 20px !important;
-    left: 230px !important;
-    position: absolute !important;
-    top: 0 !important;
-    width: 20px !important;
-  }
-  
-  .frame .design-component-instance-node {
-    margin-bottom: -10px !important;
-    margin-left: -10px !important;
-    margin-right: -10px !important;
-    margin-top: -10px !important;
-  }
-  
-  .frame .text-wrapper-2 {
-    color: #313035;
-    font-family: "Quicksand", Helvetica;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
-  
-  .frame .div-3 {
-    align-items: flex-end;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 4px;
-    position: relative;
-  }
-  
-  .frame .mui-more-vert-filled {
-    height: 24px !important;
-    position: relative !important;
-    width: 24px !important;
-  }
-  
-  .frame .frame-wrapper {
-    align-items: center;
-    background-color: #ffffff;
-    border: 1px solid;
-    border-color: #eeeff1;
-    border-radius: 6px;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 24px;
-    justify-content: center;
-    padding: 4px;
-    position: relative;
-  }
-  
-  .frame .div-4 {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 4px;
-    justify-content: flex-end;
-    position: relative;
-  }
-  
-  .frame .ellipse {
-    background-color: #bec1c8;
-    border-radius: 4px;
-    height: 8px;
-    position: relative;
-    width: 8px;
-  }
-  
-  .frame .text-wrapper-3 {
-    color: #676c72;
-    font-family: "Quicksand", Helvetica;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
-  
-  .frame .ellipse-2 {
-    background-color: #d9d9d9;
-    border-radius: 3px;
-    height: 6px;
-    left: 264px;
-    position: absolute;
-    top: 30px;
-    width: 6px;
-  }
-  
+/* Styles for the Kanban card component */
+.outer-card {
+  width: 200px;
+  margin: 5px 0;
+  border-radius: 4px;
+  padding: 13px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top row: User ID and Circular User Profile */
+.top-row {
+  display: flex;
+  color: rgb(58, 57, 57);
+  justify-content: space-between;
+  align-items: flex-start; 
+  margin-bottom: 10px; 
+  text-align: start;
+  font-size: 12px;
+}
+
+.user-id {
+  font-weight: bold;
+}
+
+.user-profile-image {
+  width: 15px;
+  height: 15px;
+  border-radius: 8px;
+  position: relative; 
+}
+
+.profile {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; 
+}
+
+.available-dot {
+  position: absolute; 
+  width: 7px; 
+  height: 7px;
+  border-radius: 50%; 
+  top: 12px;
+  border: 1px solid rgb(217, 214, 214);
+  left: 11px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+}
+
+.ticket-title {
+  height: 30px;
+  font-weight: bold;
+  font-size: 10px;
+  margin-bottom: 15px;
+  display: inline-block;
+  text-align: left;
+  align-items: center;
+}
+
+.feature-request-button {
+  font-size: 9px;
+  color: rgb(58, 57, 57);
+  border-radius: 4px;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(121, 118, 118, 0.3);
+}
+
+.feature-request-left-icon {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 10px;
+  display: flex;
+  justify-items: center;
+  border-radius: 3px;
+  padding: 3px;
+  box-shadow: 0 0 5px rgba(121, 118, 118, 0.3);
+}
+.feature-request-icon {
+  display: flex;
+  justify-content: center;
+  background-color: #bec2c8;
+  width: 6px;
+  height: 6px;
+  border-radius: 7px;
+  margin-right: 6px;
+}
+
+.marginright{
+  margin-right: 6px;
+}

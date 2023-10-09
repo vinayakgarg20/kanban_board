@@ -1,89 +1,23 @@
 import React from "react";
 import FeatureCard from "../../Components/FeatureCard";
-
-const ListContainer = ({
-  title,
-  tickets,
-  userInfo,
-  groupingData,
-  groupingLabel,
-}) => {
-  const PriorityOrder = groupingData.PriorityOrder;
-  const TicketStatus = groupingData.TicketStatus;
+import { GroupingData } from "../../Components/GroupingData";
+const ListContainer = ({ title, tickets, userInfo, groupingLabel }) => {
+  const PriorityLabel = GroupingData.PriorityLabel;
 
   return (
     <div>
-      {/* grouping based on priority */}
-      {groupingLabel === "priority" && (
-        <div>
-          {PriorityOrder.map((item) => (
+         {groupingLabel === "priority" &&  <h1>{PriorityLabel[Number(title)]}</h1> }
+         {groupingLabel === "status" &&  <h1>{title}</h1>}
+         {groupingLabel === "user" &&  <h1>{userInfo[title].name}</h1>}
+          {tickets.map((ticket) => (
             <>
-              {item.key === Number(title) && (
-                <>
-                  <h1>{item.label}</h1>
-                  {tickets.map((ticket) => (
-                    <>
-                      <FeatureCard
-                        ticket={ticket}
-                        userInfo={userInfo}
-                        priorityIcon={item.priorityIcon}
-                      />
-                    </>
-                  ))}
-                </>
-              )}
+              <FeatureCard
+                ticket={ticket}
+                userInfo={userInfo}
+                groupingLabel={groupingLabel}
+              />
             </>
           ))}
-        </div>
-      )}
-
-      {/* grouping based on status */}
-      {groupingLabel === "status" && (
-        <div>
-          {TicketStatus.map((item) => (
-            <>
-              {item.status === title && (
-                <>
-                  <h1>{item.status}</h1>
-                  {tickets.map((ticket) => (
-                    <>
-                      <FeatureCard
-                        ticket={ticket}
-                        userInfo={userInfo}
-                        statusIcon={item.statusIcon}
-                      />
-                    </>
-                  ))}
-                </>
-              )}
-            </>
-          ))}
-        </div>
-      )}
-
-      {/* grouping based on user */}
-      {groupingLabel === "user" && (
-        <div>
-          {userInfo.map((user) => (
-            <>
-              {user.id === title && (
-                <>
-                  <h1>{user.name}</h1>
-                  {tickets.map((ticket) => (
-                    <>
-                      <FeatureCard
-                        ticket={ticket}
-                        userInfo={user}
-                        userAvailability={user.available}
-                      />
-                    </>
-                  ))}
-                </>
-              )}
-            </>
-          ))}
-        </div>
-      )}
     </div>
   );
 };

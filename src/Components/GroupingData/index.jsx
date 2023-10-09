@@ -6,18 +6,28 @@ import { Done, Cancelled, Backlog, InProgress, ToDo } from "../../Assets";
 // 1 - Low
 // 0 - No priority
 export const GroupingData = {
-    PriorityOrder: [
-        { key: 0, label: "No priority", priorityIcon: NoPriority },
-        { key: 1, label: "Low", priorityIcon: Low },
-        { key: 2, label: "Medium", priorityIcon: Medium },
-        { key: 3, label: "High", priorityIcon: High },
-        { key: 4, label: "Urgent", priorityIcon: Urgent },
-      ],
-      TicketStatus : [
-        { key: 0, status: "Todo", statusIcon:ToDo },
-        { key: 1, status: "In progress",statusIcon:InProgress },
-        { key: 2, status: "Backlog" ,statusIcon:Backlog},
-        { key: 3, status: "Done", statusIcon:Done },
-        { key: 4, status: "Cancelled", statusIcon:Cancelled },
-      ]
-  }
+  PriorityIcon: {
+    0: NoPriority,
+    1: Low,
+    2: Medium,
+    3: High,
+    4: Urgent,
+  },
+  PriorityLabel: {
+    0: "No priority",
+    1: "Low",
+    2: "Medium",
+    3: "High",
+    4: "Urgent",
+  },
+  StatusIcon: {
+    "Todo": ToDo,
+    "In progress": InProgress,
+    "Backlog": Backlog,
+    "Done": Done,
+    "Cancelled": Cancelled,
+  },
+
+};
+
+
