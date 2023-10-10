@@ -87,4 +87,3 @@ The Interactive Kanban Board Application provides an intuitive interface for use
 
 ---
 
-This documentation now emphasizes the clean code practices, component organization, and readability of the project. It highlights how the codebase is structured to ensure easy comprehension and maintenance.
