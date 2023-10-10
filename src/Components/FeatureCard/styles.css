@@ -30,6 +30,7 @@
 .middle-row{
   display: flex;
   align-items: flex-start;
+  justify-content: flex-start;
   gap: 8px;
   align-self: stretch;
 }
@@ -52,6 +53,9 @@
   border: 1px solid #bec2c8;
   background: #fff;
   padding: 2px;
+  width: 16px;
+  height: 16px;
+  color: #4C5159;
   display: flex;
   align-items: center;
   justify-content: center;

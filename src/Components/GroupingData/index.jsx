@@ -1,8 +1,6 @@
-import { Urgent, NoPriority } from "../../Assets";
+import { Urgent, NoPriority,Low,Medium,High } from "../../Assets";
 import { Done, Cancelled, Backlog, InProgress, ToDo } from "../../Assets";
-import SignalCellularAlt1BarIcon from '@mui/icons-material/SignalCellularAlt1Bar';
-import SignalCellularAlt2BarIcon from "@mui/icons-material/SignalCellularAlt2Bar";
-import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
+
 // 4 - Urgent
 // 3 - High
 // 2 - Medium
@@ -11,9 +9,9 @@ import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
 export const GroupingData = {
   PriorityIcon: {
     0: NoPriority,
-    1: SignalCellularAlt1BarIcon,
-    2: SignalCellularAlt2BarIcon,
-    3: SignalCellularAltIcon,
+    1: Low,
+    2: Medium,
+    3: High,
     4: Urgent,
   },
   PriorityLabel: {

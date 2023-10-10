@@ -31,15 +31,15 @@ const FeatureCard = ({ ticket, userInfo, groupingLabel }) => {
         <div className="middle-row-title">{ticket.title}</div>
       </div>
       <div className="bottom-row">
-        <div className="bottom-row-icon">
+       
           {groupingLabel !== "priority" && (
             <img
-              className="feature-request-left-icon"
+              className="bottom-row-icon"
               src={PriorityIcon[ticket.priority]}
               alt=""
             />
           )}
-        </div>
+        
         <div className="bottom-row-tag">
           <div className="tag-radio"></div>
           <div className="tag-text">{ticket.tag}</div>

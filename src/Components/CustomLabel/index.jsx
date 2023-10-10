@@ -25,23 +25,28 @@ export const CustomLabel = ({ groupingLabel, userInfo, val, length }) => {
           {groupingLabel === "user" ? (
             <UserProfile userInfo={userInfo} userId={val} />
           ) : (
-            <img src={iconURL} alt="" />
+            <img className="custom-label-icon" src={iconURL} alt="" />
           )}
+
           <span className="columnDisplayText"> {title} </span>
           <span className="columnDisplaySize">{length}</span>
         </div>
       </div>
       <div className="custom-label-right">
-        <AddIcon sx={{
-    color: "#4C5159",
-    fontSize: "16px",
-    cursor: "pointer",
-  }} />
-        <MoreHorizIcon sx={{
-    color: "#4C5159",
-    fontSize: "16px",
-    cursor: "pointer",
-  }}/>
+        <AddIcon
+          sx={{
+            color: "#4C5159",
+            fontSize: "16px",
+            cursor: "pointer",
+          }}
+        />
+        <MoreHorizIcon
+          sx={{
+            color: "#4C5159",
+            fontSize: "16px",
+            cursor: "pointer",
+          }}
+        />
       </div>
     </div>
   );

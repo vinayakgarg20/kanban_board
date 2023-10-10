@@ -15,7 +15,15 @@
   align-items: center;
   gap: 8px;
 }
-
+.custom-label-title{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.custom-label-icon{
+  width: 16px;
+  height: 16px;
+}
 .columnDisplayText {
   color: #000;
   font-family: Inter;
