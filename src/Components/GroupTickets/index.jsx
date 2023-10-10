@@ -5,7 +5,7 @@ export const GroupTickets = ({
   groupingLabel,
 }) => {
   return (
-    <div>
+    <>
       {Object.keys(tickets).map((ticketList) => (
         <ListContainer
           title={ticketList}
@@ -14,6 +14,6 @@ export const GroupTickets = ({
           groupingLabel={groupingLabel}
         />
       ))}
-    </div>
+    </>
   );
 };

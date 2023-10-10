@@ -11,12 +11,13 @@ const FeatureCard = ({ ticket, userInfo, groupingLabel }) => {
   return (
     <div className="outer-card">
       <div className="top-row">
-        {ticket.id}
+        <span className="top-row-title">{ticket.id}</span>
+
         {groupingLabel !== "user" && (
           <UserProfile userId={ticket.userId} userInfo={userInfo} />
         )}
       </div>
-      <div style={{ display: "flex" }}>
+      <div className="middle-row">
         <div>
           {groupingLabel !== "status" && (
             <img
@@ -27,10 +28,10 @@ const FeatureCard = ({ ticket, userInfo, groupingLabel }) => {
           )}
         </div>
 
-        <div className="ticket-title">{ticket.title}</div>
+        <div className="middle-row-title">{ticket.title}</div>
       </div>
-      <div style={{ display: "flex" }}>
-        <span>
+      <div className="bottom-row">
+        <div className="bottom-row-icon">
           {groupingLabel !== "priority" && (
             <img
               className="feature-request-left-icon"
@@ -38,10 +39,10 @@ const FeatureCard = ({ ticket, userInfo, groupingLabel }) => {
               alt=""
             />
           )}
-        </span>
-        <div className="feature-request-button feature">
-          <div className="feature-request-icon"></div>
-          <div className="inlineblock">Feature Request</div>
+        </div>
+        <div className="bottom-row-tag">
+          <div className="tag-radio"></div>
+          <div className="tag-text">{ticket.tag}</div>
         </div>
       </div>
     </div>

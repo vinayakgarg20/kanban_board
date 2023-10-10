@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import "./styles.css";
 import { GroupTickets } from "../../Components/GroupTickets";
-import { GroupingData } from "../../Components/GroupingData";
+import { Navbar } from "../../Components/Navbar";
 
-import Dropdown from "../../Components/DropDown";
 import { useAppState } from "../../Components/StateContext";
 export const Board = () => {
   const [tickets, setTickets] = useState([]);
@@ -14,9 +13,9 @@ export const Board = () => {
   const ordering = selectedOptions.ordering;
 
   //create a object of users with userId as key value;
-  let userInfo={};
+  let userInfo = {};
   // grouping tickets according to different categories
-  let ticketInfo={};
+  let ticketInfo = {};
   // fetching data from api
   useEffect(() => {
     const fetchData = async () => {
@@ -66,29 +65,25 @@ export const Board = () => {
     console.log(requiredTickets, "🥺😊 ");
     return requiredTickets;
   };
-  const userMap=()=>{
-    let userMapping={}
-    users.forEach(user=>{
-      userMapping[user.id]=user;
-    })
+  const userMap = () => {
+    let userMapping = {};
+    users.forEach((user) => {
+      userMapping[user.id] = user;
+    });
     return userMapping;
-  }
-  ticketInfo= ticketsGrouping();
-  userInfo=userMap();
+  };
+  ticketInfo = ticketsGrouping();
+  userInfo = userMap();
   return (
-    <div>
-      
-      <div>
-      <Dropdown />
+    <div className="board-container">
+      <Navbar/>
+      <div className="ticket-orientation">
+        <GroupTickets
+          tickets={ticketInfo}
+          userInfo={userInfo}
+          groupingLabel={grouping}
+        />
       </div>
-      <div>
-      <GroupTickets
-        tickets={ticketInfo}
-        userInfo={userInfo}
-        groupingLabel={grouping}
-      />
-      </div>
-      
     </div>
   );
 };

@@ -1,13 +1,5 @@
-.card-list{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100%;
-}
-.list-container{
-    display: flex;
+.list-container {
+  display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: flex-start;
@@ -17,3 +9,13 @@
   flex: 1;
   flex-shrink: 0;
 }
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+

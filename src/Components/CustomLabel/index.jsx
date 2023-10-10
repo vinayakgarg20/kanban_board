@@ -32,8 +32,16 @@ export const CustomLabel = ({ groupingLabel, userInfo, val, length }) => {
         </div>
       </div>
       <div className="custom-label-right">
-        <AddIcon />
-        <MoreHorizIcon />
+        <AddIcon sx={{
+    color: "#4C5159",
+    fontSize: "16px",
+    cursor: "pointer",
+  }} />
+        <MoreHorizIcon sx={{
+    color: "#4C5159",
+    fontSize: "16px",
+    cursor: "pointer",
+  }}/>
       </div>
     </div>
   );

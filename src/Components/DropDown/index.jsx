@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./styles.css"; // Import your CSS for styling
+import TuneIcon from "@mui/icons-material/Tune";
+
 import { useAppState } from "../StateContext";
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
