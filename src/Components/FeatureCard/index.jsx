@@ -1,10 +1,10 @@
 import React from "react";
-import { GroupingData } from "../GroupingData";
-import "./styles.css";
-import { UserProfile } from "../UserProfile";
+import { GroupingData } from "../GroupingData"; // Import grouping data.
+import "./styles.css"; 
+import { UserProfile } from "../UserProfile"; // Import the UserProfile component.
 
 const FeatureCard = ({ ticket, userInfo, groupingLabel }) => {
-  // getting Icons from group data
+  // Get Icons from group data
   const PriorityIcon = GroupingData.PriorityIcon;
   const StatusIcon = GroupingData.StatusIcon;
 
@@ -13,12 +13,14 @@ const FeatureCard = ({ ticket, userInfo, groupingLabel }) => {
       <div className="top-row">
         <span className="top-row-title">{ticket.id}</span>
 
+        {/* Render UserProfile component if groupingLabel is not "user" */}
         {groupingLabel !== "user" && (
           <UserProfile userId={ticket.userId} userInfo={userInfo} />
         )}
       </div>
       <div className="middle-row">
         <div>
+          {/* Render StatusIcon if groupingLabel is not "status" */}
           {groupingLabel !== "status" && (
             <img
               className="inlineblock marginright"
@@ -32,6 +34,7 @@ const FeatureCard = ({ ticket, userInfo, groupingLabel }) => {
       </div>
       <div className="bottom-row">
        
+          {/* Render PriorityIcon if groupingLabel is not "priority" */}
           {groupingLabel !== "priority" && (
             <img
               className="bottom-row-icon"

@@ -1,3 +1,5 @@
+// GroupingData contains mappings for priority levels, status names,
+// and their corresponding icons and labels.
 import { Urgent, NoPriority,Low,Medium,High } from "../../Assets";
 import { Done, Cancelled, Backlog, InProgress, ToDo } from "../../Assets";
 

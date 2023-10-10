@@ -3,20 +3,25 @@ import axios from "axios";
 import "./styles.css";
 import { GroupTickets } from "../../Components/GroupTickets";
 import { Navbar } from "../../Components/Navbar";
-
 import { useAppState } from "../../Components/StateContext";
+
 export const Board = () => {
+  // State to store tickets and users data
   const [tickets, setTickets] = useState([]);
   const [users, setUsers] = useState([]);
+  
+  // Get selected options from the application state using the context
   const { selectedOptions } = useAppState();
   const grouping = selectedOptions.grouping;
   const ordering = selectedOptions.ordering;
 
-  //create a object of users with userId as key value;
+  // Create an object of users with userId as key value
   let userInfo = {};
-  // grouping tickets according to different categories
+
+  // Group tickets according to different categories
   let ticketInfo = {};
-  // fetching data from api
+
+  // Fetching data from an API
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,7 +37,7 @@ export const Board = () => {
     fetchData();
   }, []);
 
-  // Sorting the tickets on the basis of desired ordering.
+  // Sorting the tickets based on the desired ordering.
   const ticketsSorting = (tickets) => {
     Object.keys(tickets).forEach((key) => {
       tickets[key] = tickets[key].sort((a, b) => {
@@ -45,7 +50,7 @@ export const Board = () => {
     });
   };
 
-  // Sorting the tickets on the basis of desired grouping.
+  // Sorting the tickets based on the desired grouping.
   const ticketsGrouping = () => {
     let requiredTickets = {};
     tickets.forEach((ticket) => {
@@ -65,6 +70,8 @@ export const Board = () => {
     console.log(requiredTickets, "🥺😊 ");
     return requiredTickets;
   };
+
+  // Map user data to a user ID
   const userMap = () => {
     let userMapping = {};
     users.forEach((user) => {
@@ -72,12 +79,17 @@ export const Board = () => {
     });
     return userMapping;
   };
+
+  // Group and sort the tickets and user information
   ticketInfo = ticketsGrouping();
   userInfo = userMap();
+
   return (
     <div className="board-container">
-      <Navbar/>
+      {/* Render the Navbar component */}
+      <Navbar />
       <div className="ticket-orientation">
+        {/* Render the GroupTickets component with grouped and sorted tickets */}
         <GroupTickets
           tickets={ticketInfo}
           userInfo={userInfo}

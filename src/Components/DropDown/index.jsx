@@ -1,6 +1,5 @@
-// Dropdown.js
 import React, { useState, useRef, useEffect } from "react";
-import "./styles.css"; // Import your CSS for styling
+import "./styles.css"; // Import CSS for styling
 import TuneIcon from "@mui/icons-material/Tune";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
@@ -15,30 +14,36 @@ const Dropdown = () => {
 
   const dropdownRef = useRef(null);
 
+  // Function to toggle the main dropdown
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
+  // Function to toggle the grouping dropdown
   const toggleGroupingDropdown = () => {
     setIsGroupingOpen(!isGroupingOpen);
   };
 
+  // Function to toggle the ordering dropdown
   const toggleOrderingDropdown = () => {
     setIsOrderingOpen(!isOrderingOpen);
   };
 
+  // Function to handle grouping selection
   const handleGroupChange = (event) => {
     updateSelectedOptions(event.target.value, selectedOptions.ordering);
     setIsGroupingOpen(true);
     setIsOrderingOpen(false);
   };
 
+  // Function to handle ordering selection
   const handleOrderChange = (event) => {
     updateSelectedOptions(selectedOptions.grouping, event.target.value);
     setIsGroupingOpen(false);
     setIsOrderingOpen(true);
   };
 
+  // Function to handle click outside to close the dropdowns
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsOpen(false);
@@ -46,11 +51,13 @@ const Dropdown = () => {
       setIsOrderingOpen(false);
     }
   };
-  const GroupingOptions = ["Status", "User", "Priority"];
+
   useEffect(() => {
+    // Add an event listener to handle click outside
     document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
+      // Remove the event listener when the component unmounts
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
@@ -69,8 +76,9 @@ const Dropdown = () => {
       {isOpen && (
         <div className="dropdown-content">
           <div className="dropdown-option" onClick={toggleGroupingDropdown}>
-            <span className="dropdown-option-label">Grouping </span>
+            <span className="dropdown-option-label">Grouping</span>
             <div className="select-container">
+              {/* Use a select element for grouping */}
               <select
                 className="dropdown-selector"
                 value={selectedOptions.grouping}
@@ -84,8 +92,9 @@ const Dropdown = () => {
           </div>
 
           <div className="dropdown-option" onClick={toggleOrderingDropdown}>
-            <span className="dropdown-option-label">Ordering </span>
+            <span className="dropdown-option-label">Ordering</span>
             <div className="select-container">
+              {/* Use a select element for ordering */}
               <select
                 className="dropdown-selector"
                 value={selectedOptions.ordering}
