@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+Certainly, let's incorporate information about clean code and component organization into the documentation:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## Kanaban Board Application
 
-In the project directory, you can run:
+**Project Name:** Interactive Kanban Board Application
 
-### `npm start`
+**Developer:** Vinayak Garg
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Institution:** Indian Institute of Technology Roorkee
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Technology Stack:** React JS, MaterialUI, Axios
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Description
 
-### `npm run build`
+The Interactive Kanban Board Application is designed to provide users with a dynamic Kanban board that fetches data from an external API and allows users to interact with it. The application offers various grouping and sorting options to customize the view of the Kanban board.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Key Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Dynamic grouping of tickets based on Status, User, or Priority.
+- Sorting options for tickets by Priority or Title.
+- Responsive and visually appealing design.
+- Persistence of the user's view state across page reloads.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Priority Levels
 
-### `npm run eject`
+- Urgent (Priority level 4)
+- High (Priority level 3)
+- Medium (Priority level 2)
+- Low (Priority level 1)
+- No priority (Priority level 0)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### API Integration
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The application fetches ticket data from the provided API at https://api.quicksell.co/v1/internal/frontend-assignment to populate the Kanban board.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Project Structure
 
-## Learn More
+The project follows a well-organized structure that promotes clean code and ease of understanding.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Components
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Dropdown Component**: A user-friendly dropdown for grouping and sorting options.
+- **FeatureCard Component**: Displays individual Kanban cards for each ticket.
+- **CustomLabel Component**: Customizable labels for grouping options.
+- **ListContainer Component**: Organizes tickets into lists based on grouping.
 
-### Code Splitting
+### Container and Component Organization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The project neatly divides components and containers, making the codebase easy to read and understand. Components are designed to be highly reusable and follow best practices for clean code.
 
-### Analyzing the Bundle Size
+### Context and State Management
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **AppStateContext**: Manages the application's state, ensuring efficient state management.
 
-### Making a Progressive Web App
+### Entry and Rendering
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **App.js**: The central component orchestrating the rendering of other components.
+- **index.js**: The entry point for rendering the React application.
 
-### Advanced Configuration
+### Additional Assets
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **assets**: Holds static assets such as images and icons.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Getting Started
 
-### `npm run build` fails to minify
+To run the application in development mode, use the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+npm start
+```
+
+Open http://localhost:3000 in your browser to access the application.
+
+---
+
+## Conclusion
+
+The Interactive Kanban Board Application provides an intuitive interface for users to interact with tasks seamlessly. It leverages React, MaterialUI, and Axios to deliver a responsive and user-friendly experience while maintaining clean code and a well-organized structure.
+
+---
+
+This documentation now emphasizes the clean code practices, component organization, and readability of the project. It highlights how the codebase is structured to ensure easy comprehension and maintenance.
